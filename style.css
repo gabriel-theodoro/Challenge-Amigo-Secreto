@@ -1,0 +1,422 @@
+:root {
+    --color-primary: #4B69FD;
+    --color-secondary: #FFF9EB;
+    --color-tertiary: #C4C4C4;
+    --color-button: #fe652b;
+    --color-button-hover: #e55720;
+    --color-text: #444444;
+    --color-white: #FFFFFF;
+}
+
+/* Estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+/* Banner */
+.header-banner {
+    flex: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 0;
+}
+
+/* Seção de entrada */
+.input-section {
+    flex: 60%;
+    background-color: var(--color-secondary);
+    border: 1px solid #000;
+    border-radius: 64px 64px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-height: 70vh; /* Limita altura máxima */
+    overflow-y: auto; /* Permite scroll vertical */
+}
+
+/* Títulos */
+.main-title {
+    font-size: 48px;
+    font-family: "Merriweather", serif;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--color-white);
+}
+
+.section-title {
+    font-family: "Inter", serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Contêineres de entrada e botão */
+.input-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.input-name {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 25px 0 0 25px;
+    font-size: 16px;
+}
+
+.button-container {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    background-color: var(--color-secondary); /* Mantém o fundo consistente */
+    z-index: 10; /* Garante que fique sobre outros elementos */
+}
+
+/* Estilos de entrada de texto */
+.input-title {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #333;
+    border-right: none;
+    border-radius: 25px 0 0 25px;
+    font-family: "Merriweather", serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos de botão */
+button {
+    padding: 15px 30px;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.button-add {
+    background-color: var(--color-tertiary);
+    color: var(--color-text);
+    border-radius: 0 25px 25px 0;
+}
+
+.button-add:hover {
+    background-color: #a1a1a1;
+}
+
+/* Listas */
+ul {
+    list-style-type: none;
+    color: var(--color-text);
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.result-list {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 80px; /* Espaço para os botões fixos */
+    color: #05DF05;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.result-list li {
+    animation: aparecer 0.5s ease-out forwards;
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    opacity: 0;
+}
+
+.result-list li:nth-child(1) { animation-delay: 0.1s; }
+.result-list li:nth-child(2) { animation-delay: 0.2s; }
+.result-list li:nth-child(3) { animation-delay: 0.3s; }
+/* ...continue para mais itens se necessário */
+
+/* Botão de sortear título */
+.button-draw {
+    width: 300px; /* Largura fixa para o botão de sorteio */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 40px;
+    color: var(--color-white);
+    background-color: var(--color-button);
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.button-draw img {
+    margin-right: 40px;
+}
+
+.button-draw:hover {
+    background-color: var(--color-button-hover);
+}
+
+.botao-remover {
+    background: transparent;
+    color: #ff4444;
+    border: 2px solid #ff4444;
+    border-radius: 20px;
+    width: auto;
+    height: 30px;
+    padding: 0 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.botao-remover:hover {
+    background: #ff4444;
+    color: white;
+}
+
+/* Lista de amigos */
+.name-list li {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin: 5px 0;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.name-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.name-list li span {
+    flex: 1;
+    font-size: 16px;
+}
+
+.botao-remover {
+    background: transparent;
+    color: #ff4444;
+    border: 2px solid #ff4444;
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    height: 25px;
+}
+
+/* Novo container para WhatsApp */
+.whatsapp-container {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.whatsapp-container input {
+    width: 350px; /* Largura fixa para melhor proporção */
+    height: 50px;
+    padding: 15px 30px;
+    border: 2px solid var(--color-tertiary);
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.button-whatsapp {
+    width: 200px; /* Largura fixa para melhor proporção */
+    height: 50px;
+    background-color: #25D366;
+    color: white;
+    white-space: nowrap;
+    padding: 15px 30px;
+    border: 2px solid #1a9247;
+    border-radius: 25px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Remover estilos não utilizados */
+.button-export, .button-theme, .phone-input {
+    display: none;
+}
+
+/* Tema escuro */
+[data-theme="dark"] {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Animação do sorteio */
+@keyframes sortear {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes aparecer {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Estilos do Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--color-secondary);
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.close-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#mensagem-whatsapp {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid var(--color-tertiary);
+    border-radius: 5px;
+    font-family: "Inter", sans-serif;
+}
+
+/* Remover todos os estilos do modal e manter apenas os estilos do botão do WhatsApp */
+.button-whatsapp {
+    background-color: #25D366;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.button-whatsapp:hover {
+    background-color: #128C7E;
+}
+
+/* Estilos para elementos de IA */
+.compatibilidade, .sugestao {
+    display: block;
+    font-size: 14px;
+    padding: 5px 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.compatibilidade {
+    color: #4B69FD;
+    background: rgba(75, 105, 253, 0.1);
+}
+
+.sugestao {
+    color: #25D366;
+    background: rgba(37, 211, 102, 0.1);
+}
+
+.result-list li {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background: white;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Lista de amigos com scroll */
+.name-list {
+    max-height: 200px; /* Altura máxima para a lista */
+    overflow-y: auto; /* Adiciona scroll vertical */
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    
+    /* Estiliza a barra de rolagem */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) transparent;
+}
+
+/* Estilização da barra de rolagem para Chrome/Safari */
+.name-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.name-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.name-list::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 20px;
+    border: 2px solid transparent;
+}
